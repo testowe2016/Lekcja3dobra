@@ -143,7 +143,7 @@ if __name__ == '__main__':
         print(f'klucz: {apartment.key}')
         print(f'NAZWA: {apartment.name}')
         print(f'lokacja: {apartment.location}')
-        print(f'ROZMIAR: apartment.area_m2')
+        print(f'ROZMIAR: {apartment.area_m2}')
 
         for room in apartment.rooms.values():
             print('  ', room.name, room.area_m2)
