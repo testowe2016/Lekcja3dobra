@@ -8,7 +8,7 @@
         "date_agreement_from": "2024-01-01",
         "date_agreement_to": "2024-12-31"
     },
-    "tenant-3": {
+    "tenant-2": {
         "name": "tenant-2",
         "apartment": "apart-polanka",
         "room": "room-medium",
@@ -17,7 +17,7 @@
         "date_agreement_from": "2025-02-01",
         "date_agreement_to": "2025-12-31"
     },
-    "tenant-2": {
+    "tenant-3": {
         "name": "tenant-3",
         "apartment": "apart-polanka",
         "room": "room-smaller",
