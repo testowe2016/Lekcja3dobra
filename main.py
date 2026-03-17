@@ -7,10 +7,9 @@ class TenantSettlement(BaseModel):
     name: str
     apartment: str
     rent_pln: float
-    settlement_year: int
-    settlement_month: int
+    settlement_year: float
+    settlement_month: float
     x: int
-    #dodaje losowy komentarz xppp xDiddy
     def from_json_file(file_path: str) -> List['Bill']:
         data = None
         with open(file_path, 'r') as file:
@@ -20,10 +19,11 @@ class TenantSettlement(BaseModel):
     
 
 class Parameters(BaseModel):
-    apartments_json_path: str = 'data/apartments.json'
-    tenants_json_path: str = 'data/tenants.json'
     transfers_json_path: str = 'data/transfers.json'
     bills_json_path: str = 'data/bills.json'
+    apartments_json_path: str = 'data/apartments.json'
+    tenants_json_path: str = 'data/tenants.json'
+
 
 
 class Room(BaseModel):
@@ -138,15 +138,18 @@ if __name__ == '__main__':
     manager = Manager(parameters)
 
     for apartment in manager.apartments.values():
+        print(f"Nizej dane o apartamencie sie wyswietlaja")
         print(apartment.key, apartment.name, apartment.location, apartment.area_m2)
         for room in apartment.rooms.values():
             print('  ', room.name, room.area_m2)
         
         for bill in manager.bills:
             if bill.apartment == apartment.key:
+                print(f"Nizej bardzo wazne dane o rachunkach sie wyswietlaja")
                 print('  ', bill.amount_pln, bill.date_due, bill.settlement_year, bill.settlement_month, bill.type)
 
     for tenant in manager.tenants.values():
+        print(f"Dane o najemcach i transakcjach: ")
         print(tenant.name, tenant.apartment, tenant.room, tenant.rent_pln, tenant.deposit_pln, tenant.date_agreement_from, tenant.date_agreement_to)
         for transfer in manager.transfers:
             if transfer.tenant == tenant.name:
