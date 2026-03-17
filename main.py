@@ -133,12 +133,18 @@ class Manager:
         self.bills = Bill.from_json_file(self.parameters.bills_json_path)
 
 
+
 if __name__ == '__main__':
     parameters = Parameters()
     manager = Manager(parameters)
 
+
     for apartment in manager.apartments.values():
-        print(apartment.key, apartment.name, apartment.location, apartment.area_m2)
+        print(f'klucz: {apartment.key}')
+        print(f'NAZWA: {apartment.name}')
+        print(f'lokacja: {apartment.location}')
+        print(f'ROZMIAR: apartment.area_m2')
+
         for room in apartment.rooms.values():
             print('  ', room.name, room.area_m2)
         
@@ -151,3 +157,5 @@ if __name__ == '__main__':
         for transfer in manager.transfers:
             if transfer.tenant == tenant.name:
                 print('  ', transfer.amount_pln, transfer.date, transfer.settlement_year, transfer.settlement_month)
+                
+
