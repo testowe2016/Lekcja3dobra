@@ -32,6 +32,23 @@ class Apartment(BaseModel):
         return {key: Apartment(**apartment) for key, apartment in data.items()}
 
     
+class ApartmentSettlement(BaseModel):
+    apartment: str
+    month: int
+    year: int
+    suma_rachunków: float
+    rents_sum: float
+    unpaid_money: float
+    
+    @staticmethod
+    def from_json_file(file_path: str) -> Dict[str,'ApartmentSettlement']:
+        data = None
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+        assert isinstance(data, dict), "Expected a dictionary of apartmentsettlements"
+        return {key: Apartment(**apartmentsettlement) for key, apartmentsettlement in data.items()}
+    
+    
 class Tenant(BaseModel):
     name: str
     apartment: str
