@@ -137,17 +137,22 @@ if __name__ == '__main__':
     parameters = Parameters()
     manager = Manager(parameters)
 
+    print("Mieszkania:")
     for apartment in manager.apartments.values():
         print(f"Nizej dane o apartamencie sie wyswietlaja")
         print(apartment.key, apartment.name, apartment.location, apartment.area_m2)
+        print(" Pokoje:")
         for room in apartment.rooms.values():
             print('  ', room.name, room.area_m2)
         
+        print(" Rachunki:")
         for bill in manager.bills:
             if bill.apartment == apartment.key:
                 print(f"Nizej bardzo wazne dane o rachunkach sie wyswietlaja")
                 print('  ', bill.amount_pln, bill.date_due, bill.settlement_year, bill.settlement_month, bill.type)
 
+    print("=============")
+    print("Mieszkańcy: ")
     for tenant in manager.tenants.values():
         print(f"Dane o najemcach i transakcjach: ")
         print(tenant.name, tenant.apartment, tenant.room, tenant.rent_pln, tenant.deposit_pln, tenant.date_agreement_from, tenant.date_agreement_to)
