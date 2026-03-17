@@ -3,6 +3,21 @@ from typing import Dict, List
 
 import json
 
+class TenantSettlement(BaseModel):
+    name: str
+    apartment: str
+    rent_pln: float
+    settlement_year: int
+    settlement_month: int
+    x: int
+    #dodaje losowy komentarz xppp xDiddy
+    def from_json_file(file_path: str) -> List['Bill']:
+        data = None
+        with open(file_path, 'r') as file:
+            data = json.load(file) 
+            x=1
+
+    
 
 class Parameters(BaseModel):
     apartments_json_path: str = 'data/apartments.json'
