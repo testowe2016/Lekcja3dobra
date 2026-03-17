@@ -36,7 +36,7 @@ class ApartmentSettlement(BaseModel):
     apartment: str
     month: int
     year: int
-    bills_sum: float
+    suma_rachunków: float
     rents_sum: float
     unpaid_money: float
     
